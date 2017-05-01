@@ -1,0 +1,92 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	color:#AD294E;
+	font:13px/20px 'lucida Grande', tahoma, verdana, sans-serif;
+	background:gray; 
+}
+
+.contenedor{
+	margin:250px auto;
+	width:45%;
+}
+
+
+input{
+	font-family:tahoma;
+	font-size: 160px;
+}
+
+
+.styleDiv{
+	position: relative ;
+	margin: 0 auto;
+	padding: 20px 20px 20px 20px;
+	width: 450px;
+	background: white;
+	border-radius: 15px;
+	-webkit-box-shadow: 0 0 200px rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0 0 200px rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.styleDiv h1{
+	margin: -20px -20px 20px;
+	line-height: 40px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #555;
+	text-align: center;
+	text-shadow: 0 1px white;
+	background: #F3F3F3;
+	border-bottom: 1px solid #CFCFCF;
+	border-radius: 3px 3px 0 0;
+	background-image: -webkit-linear-gradient(top,whiteFFD, #EEF2F5);
+	background-image: -moz-linear-gradient(top,whiteFFD, #EEF2F5);
+	background-image: -o-linear-gradient(top,whiteFFD, #EEF2F5);
+	background-image: linear-gradient(top,whiteFFD, #EEF2F5);
+	-webkit-box-shadow: 0 1px whitesmoke;
+	box-shadow: 0 1px whitesmoke;
+}
+
+.styleDiv p{
+	margin: 20px 10 0;
+}
+
+.styleDiv p.submit{
+	text-align: center;
+}
+
+input[type=submit], input[type=button]{
+	
+	padding: 0 18px;
+	height: 80px ;
+	font-size: 45px;
+	font-weight: bold;
+	color: #527881;
+	text-shadow: 0 1px #E3F1F1;
+	background: #CDE5EF;
+	border: 1px solid ;
+	border-color: #B4CCCE #B3C0C8 #9ED9C2;
+	border-radius: 160px;
+	outline:0;
+	-webkit-box-sizing: content-box;
+	-moz-sizing: content-box;
+	background-image: -webkit-linear-gradient(top,#EDF5F8,#CDE5EF);
+	background-image: -moz-linear-gradient(top,#EDF5F8,#CDE5EF);
+	background-image: -o-linear-gradient(top,#EDF5F8,#CDE5EF);
+	background-image: linear-gradient(top,#EDF5F8,#CDE5EF);
+	-webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0,0,0,0.15);
+	box-shadow: inset 0 1px white, 0 1px 2px rgba(0,0,0,0.15);
+
+
+input[type=text]:FOCUS, input[type=password]:FOCUS{
+	border-color: #FF8000;
+	outline-color: #FF8000;
+}
+
+.mensajeError{
+	color: red;
+	font-weight: bold;
+	text-align: center;
+	border-color: orange;
+}

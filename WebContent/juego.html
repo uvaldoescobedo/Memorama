@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Juego</title>
+<link rel="stylesheet" type="text/css" href="CSS/estiloJuego.css"> 
+</head>
+<style type="text/css">
+<!-- -->
+
+
+
+div#table_memoria > div{
+	background: #B4CCCE;
+	font-weight: bold;
+    background: url(528.jpg) no-repeat;
+    background-size: 100%;
+    border: #000 1px solid;
+    width: 9%;
+    height: 13.5%;
+    float: left;
+    margin: 10px;
+    padding: 20px;
+    font-size: 300%;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 12x solid ;
+	border-color: #B4CCCE #B3C0C8 #9ED9C2;
+	border-radius: 1600px;
+    
+    
+    }
+
+</style>
+<script type="text/javascript">
+    
+   var array_memoria =['images/Koala.jpg','images/Koala.jpg','II','II','III','III','IV','IV','V','V','VI','VI','VII','VII','VIII','VIII','IX','IX','X','X','XI','XI','XII','XII'];
+   	/*var array_memoria=[ 'images/Koala.jpg',*/
+   		
+   		
+   		
+   
+	
+	var clicsGlobal=0;
+    
+    var valor_memoria = [];
+    var memoria_carta_ids = [];
+    var virada_carta = 0;
+    
+    Array.prototype.memoria_carta_embarajar = function(){
+        var i = this.length, j, temp;
+        while(--i > 0){
+            j = Math.floor(Math.random() * (i+1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+    }/*
+function loadMedia(){
+    img = new Image();
+    img.src = 'carta_bg1.png';
+    
+}*/
+function countClics(){
+	clicsGlobal++;
+	var	clics = clicsGlobal/2;
+	
+	document.getElementById('clicsID').innerHTML=clics;
+}
+function nuevaTabla(){
+    virada_carta = 0;
+    var output = '';
+    array_memoria.memoria_carta_embarajar();
+    for(var i = 0; i < array_memoria.length; i++){
+        output += '<div id="carta_'+i+'"background:#000000 onclick="countClics();virarCartaMemoria(this,\''+array_memoria[i]+'\' )" ></div >';
+
+    }
+    document.getElementById('table_memoria').innerHTML = output;
+} 
+function virarCartaMemoria(carta,valor){
+    
+    if(carta.innerHTML == "" && valor_memoria.length < 2){
+        carta.style.background = '#B4CCCE';
+        carta.innerHTML = valor;
+        if(valor_memoria.length == 0){
+            valor_memoria.push(valor);
+            memoria_carta_ids.push(carta.id);
+        } else if(valor_memoria.length == 1){
+                valor_memoria.push(valor);
+                memoria_carta_ids.push(carta.id);
+                if(valor_memoria[0] == valor_memoria[1]){
+                    virada_carta += 2;
+                    //despejando los 2 array
+                    valor_memoria = [];
+                    memoria_carta_ids = [];
+                    //chekea si la mesa entera esta despedida
+                    if( virada_carta == array_memoria.length){
+                        alert("Juego Terminado! ");
+                        document.getElementById('table_memoria').innerHTML = "";
+                        nuevaTabla();
+                        loadMedia ();
+                    }
+                } else{
+                    function virarAtras(){
+                        //las dos cartas se van a virar
+                        var carta_1 = document.getElementById(memoria_carta_ids[0]);
+                        var carta_2 = document.getElementById(memoria_carta_ids[1]);
+                        carta_1.style.background = 'url(528.jpg) no-repeat';
+                        carta_1.innerHTML = "";
+                        carta_2.style.background = 'url(528.jpg) no-repeat';
+                        carta_2.innerHTML = "";
+                        //despejando los 2 arrays
+                        valor_memoria = [];
+                        memoria_carta_ids = [];
+                    }
+                    setTimeout(virarAtras, 700);
+                }
+            }
+
+        } 
+    }
+
+
+</script>
+    </head>
+    
+    
+    
+    
+    <body>
+    
+    <h1>Clicks Totales: <p id="clicsID">0</p></h1>
+    
+    <section class="Matriz">
+        <div class="tabla" id="table_memoria"></div>
+        <script>nuevaTabla ();</script>
+       </section>
+</body>
+</html>
