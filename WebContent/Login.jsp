@@ -15,7 +15,7 @@
 	var user = document.getElementById("usuario").value;
 	var pass = document.getElementById("password").value;
 	
-	//alert(user +""+ pass);
+	//alert(user +""+ pass); asdasdasdasds
 	
 	if(user == "" || pass ==""){
 		alert("ingresa usuario y/o contraseña");
